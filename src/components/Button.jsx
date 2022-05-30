@@ -11,7 +11,8 @@ const Button = (props) => {
 
     return(
     <ButtonDiv 
-        theme={isOperator(props.children) ? theme:''}>
+        theme={isOperator(props.children) ? theme:''}
+        onClick={() => props.clickhandler(props.children)}>
         {props.children}
     </ButtonDiv>
     ); 

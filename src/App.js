@@ -4,14 +4,19 @@ import Button  from "./components/Button.jsx";
 import Screen from "./components/Screen.jsx";
 import ButtonClear from "./components/ButtonClear.jsx";
 import { useState } from "react";
+import { evaluate } from "mathjs"
 
 const Application = () => {
 
-  const [entrada , setEntrada] = useState ('');
+  let [entrada , setEntrada] = useState ('');
 
-  const agregarEntrada = (value) => {
-    setEntrada(input + value);
+  let agregarEntrada = (value) => {
+    setEntrada(entrada + value);
   };
+
+  let calculateResult = () => {
+    setEntrada(evaluate(entrada))
+  }
 
   return (
     <Appl>
@@ -26,31 +31,31 @@ const Application = () => {
       <ContenedorCalculator>
       <Screen input={entrada}/>
         <RowCalculator>
-            <Button>1</Button>
-            <Button>2</Button>
-            <Button>3</Button>
-            <Button>+</Button>
+            <Button clickhandler={agregarEntrada}>1</Button>
+            <Button clickhandler={agregarEntrada}>2</Button>
+            <Button clickhandler={agregarEntrada}>3</Button>
+            <Button clickhandler={agregarEntrada}>+</Button>
         </RowCalculator>
         <RowCalculator>
-            <Button>4</Button>
-            <Button>5</Button>
-            <Button>6</Button>
-            <Button>-</Button>
+            <Button clickhandler={agregarEntrada}>4</Button>
+            <Button clickhandler={agregarEntrada}>5</Button>
+            <Button clickhandler={agregarEntrada}>6</Button>
+            <Button clickhandler={agregarEntrada}>-</Button>
         </RowCalculator>
         <RowCalculator>
-            <Button>7</Button>
-            <Button>8</Button>
-            <Button>9</Button>
-            <Button>*</Button>
+            <Button clickhandler={agregarEntrada}>7</Button>
+            <Button clickhandler={agregarEntrada}>8</Button>
+            <Button clickhandler={agregarEntrada}>9</Button>
+            <Button clickhandler={agregarEntrada}>*</Button>
         </RowCalculator>
         <RowCalculator>
-            <Button>=</Button>
-            <Button>0</Button>
-            <Button>.</Button>
-            <Button>/</Button>
+            <Button clickhandler={calculateResult}>=</Button>
+            <Button clickhandler={agregarEntrada}>0</Button>
+            <Button clickhandler={agregarEntrada}>.</Button>
+            <Button clickhandler={agregarEntrada}>/</Button>
         </RowCalculator>
         
-            <ButtonClear>Clear</ButtonClear>
+            <ButtonClear clickClear={() => setEntrada('')}>Clear</ButtonClear>
       
 
       </ContenedorCalculator>

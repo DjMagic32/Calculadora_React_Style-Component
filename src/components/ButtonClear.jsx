@@ -5,7 +5,9 @@ import styled from "styled-components"
 
 const ButtonClear =  (props) => {
     return(
-        <ButtonClearContainer>
+        <ButtonClearContainer 
+        onClick={props.clickClear}
+        >
             {props.children}
         </ButtonClearContainer>
     )
