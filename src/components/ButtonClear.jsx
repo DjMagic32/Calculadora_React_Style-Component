@@ -31,6 +31,7 @@ const ButtonClearContainer = styled.div`
     cursor: pointer;
     border: 2px solid black;
     border-radius: 50px;
+    user-select: none;
 
     &:hover {
         background-color: #82A0AA;

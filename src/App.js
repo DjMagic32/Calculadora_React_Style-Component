@@ -65,7 +65,7 @@ const Application = () => {
       </ContenedorCalculator>
     </Appl>
   );
-}
+};
 
 const Appl = styled.div`
      width: 100%;
