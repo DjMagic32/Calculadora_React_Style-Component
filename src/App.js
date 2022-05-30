@@ -15,7 +15,11 @@ const Application = () => {
   };
 
   let calculateResult = () => {
-    setEntrada(evaluate(entrada))
+    if (entrada){
+      setEntrada(evaluate(entrada))    
+    } else {
+      setEntrada(entrada)
+    };
   }
 
   return (
